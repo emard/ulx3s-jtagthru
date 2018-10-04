@@ -8,7 +8,6 @@ module top
   input jtag_tdo_pin,
 
   input ftdi_txd_pin, ftdi_nrts_pin, ftdi_ndtr_pin,
-  // input ftdi_txd_pin,
   output jtag_tdi_pin, jtag_tms_pin, jtag_clk_pin,
 
   output gpio0_pin
