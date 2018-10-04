@@ -1,7 +1,8 @@
 # ULX3S JTAG pass-thru
 
-Pass onboard FT231X signals to external GPIO header so
-ULX3S can be used as USB-JTAG programmer for other boards.
+Pass onboard FT231X signals to external GPIO header
+so [ULX3S](https://github.com/emard/ulx3s) can 
+be used as USB-JTAG programmer for other boards.
 
 Pinout:
 
@@ -9,7 +10,7 @@ Pinout:
     GN14:TDO    GP14:TMS
 
 This pinout is arranged similar to the JTAG header
-on ULX3S for easier cabling.
+on [ULX3S](https://github.com/emard/ulx3s) for easier cabling.
 
 # Compiling
 
@@ -35,7 +36,7 @@ my ["ft232r: unhardcoded" patch](http://openocd.zylin.com/#/c/4681/):
     make program_ft231x
 
 To program second board, connect JTAG header and proprely
-power second board (ULX3S should be powered at US1
+power second board ([ULX3S](https://github.com/emard/ulx3s) should be powered at US1
 connector, not at 3.3V pin JTAG header).
 
 Multiple FT231X connected to same computer can be
