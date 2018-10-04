@@ -1,6 +1,6 @@
 # ULX3S JTAG pass-thru
 
-Passess onboard FT231X to external GPIO header.
+Pass onboard FT231X signals to external GPIO header so
 ULX3S can be used as USB-JTAG programmer for other boards.
 
 Pinout:
@@ -27,9 +27,9 @@ First board can be programmed using either FleaFPGA-JTAG:
 
     make program
 
-or using [my OpenOCD fork](https://github.com/emard/openocd)
-with mainstream [OpenOCD](git://git.code.sf.net/p/openocd/code)
-and my ["ft232r: unhardcoded" patch](http://openocd.zylin.com/#/c/4681/):
+or using [my OpenOCD fork](https://github.com/emard/openocd) with 
+mainstream [OpenOCD](https://sourceforge.net/projects/openocd/files/openocd/) and
+my ["ft232r: unhardcoded" patch](http://openocd.zylin.com/#/c/4681/):
 
     make program_ft231x
 
@@ -47,7 +47,8 @@ In those files the serial number can be specified with line:
 
     ft232r_serial_desc 250001
 
-Custom serial number can be set from linux commandline with "ftx_prog":
+Custom serial number can be set from linux commandline
+with [ftx_prog](https://github.com/richardeoin/ftx-prog):
 
     ftx_prog --new-serial-number 250001
 
