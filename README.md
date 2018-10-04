@@ -54,6 +54,6 @@ with [ftx_prog](https://github.com/richardeoin/ftx-prog):
 
     ftx_prog --new-serial-number 250001
 
-To program other board thru first board using jtag-thru:
+To program second board using first board with jtag-thru:
 
     make program_ft231x2
