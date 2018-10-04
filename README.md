@@ -13,7 +13,8 @@ on ULX3S for easier cabling.
 
 # Compiling
 
-FPGA bitstream will compile with prjtrellis-nextpnr-yosys tools.
+FPGA bitstream will compile 
+with [prjtrellis](https://github.com/SymbiFlow/prjtrellis)-[nextpnr](https://github.com/YosysHQ/nextpnr)-[yosys](https://github.com/YosysHQ/yosys) tools.
 Compile tools in any directory (without make install),
 edit makefile here to set directory paths of the tools,
 finally compile JTAG pass-thru:
