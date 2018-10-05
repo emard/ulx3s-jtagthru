@@ -50,9 +50,13 @@ In those files the serial number can be specified with line:
     ft232r_serial_desc 250001
 
 Custom serial number can be set from linux commandline
-with [ftx_prog](https://github.com/richardeoin/ftx-prog):
+with [ftx_prog](https://github.com/richardeoin/ftx-prog) for FT231X or
+with [ft232r_prog](https://github.com/eswierk/ft232r_prog) for FT232R:
 
-    ftx_prog --new-serial-number 250001
+    ftx_prog    --new-serial-number 250001
+    ft232r_prog --new-serial-number 250001
+
+New serial number should appear after re-plugging.
 
 To program second board using first board with jtag-thru:
 
