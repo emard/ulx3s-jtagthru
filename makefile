@@ -37,7 +37,7 @@ ifeq ($(FPGA_CHIP), lfe5u-85f)
   CHIP_ID=0x41113043
 endif
 
-all: $(BOARD)_$(FPGA_SIZE)f_$(PROJECT).bit $(BOARD)_$(FPGA_SIZE)f_$(PROJECT).vme
+all: $(BOARD)_$(FPGA_SIZE)f_$(PROJECT).bit $(BOARD)_$(FPGA_SIZE)f_$(PROJECT).vme $(BOARD)_$(FPGA_SIZE)f_$(PROJECT).svf
 
 $(PROJECT).json: $(PROJECT).ys $(PROJECT).v
 	$(YOSYS) $(PROJECT).ys 
@@ -67,7 +67,7 @@ $(BOARD)_$(FPGA_SIZE)f_$(PROJECT).vme: $(BOARD)_$(FPGA_SIZE)f.xcf $(BOARD)_$(FPG
 
 # run DDTCMD to generate SVF file
 $(BOARD)_$(FPGA_SIZE)f_$(PROJECT).svf: $(BOARD)_$(FPGA_SIZE)f.xcf $(BOARD)_$(FPGA_SIZE)f_$(PROJECT).bit
-	LANG=C ${DDTCMD} -oft -svfsingle -revd -maxdata 8 -if $(BOARD)_$(FPGA_SIZE)f.xcf -nocompress -noheader -of $@
+	LANG=C ${DDTCMD} -oft -svfsingle -revd -maxdata 8 -if $(BOARD)_$(FPGA_SIZE)f.xcf -of $@
 
 # program SRAM  with FleaFPGA-JTAG (temporary)
 program: $(BOARD)_$(FPGA_SIZE)f_$(PROJECT).vme
