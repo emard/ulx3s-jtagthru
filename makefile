@@ -1,11 +1,12 @@
 PROJECT=jtagthru
 BOARD=ulx3s
-FPGA_SIZE=25
+FPGA_SIZE=85
 FPGA_CHIP=lfe5u-$(FPGA_SIZE)f
 YOSYS=/mt/scratch/tmp/openfpga/yosys/yosys
 NEXTPNR-ECP5=/mt/scratch/tmp/openfpga/nextpnr/nextpnr-ecp5
 ECPPACK=/mt/scratch/tmp/openfpga/prjtrellis/libtrellis/ecppack
 TRELLISDB=/mt/scratch/tmp/openfpga/prjtrellis/database
+BIT2SVF=/mt/scratch/tmp/openfpga/prjtrellis/tools/bit_to_svf.py
 BASECFG=/mt/scratch/tmp/openfpga/prjtrellis/misc/basecfgs/empty_$(FPGA_CHIP).config
 TINYFPGASP=tinyfpgasp
 FLEAFPGA_JTAG=FleaFPGA-JTAG 
@@ -66,8 +67,12 @@ $(BOARD)_$(FPGA_SIZE)f_$(PROJECT).vme: $(BOARD)_$(FPGA_SIZE)f.xcf $(BOARD)_$(FPG
 	LANG=C ${DDTCMD} -oft -fullvme -if $(BOARD)_$(FPGA_SIZE)f.xcf -nocompress -noheader -of $@
 
 # run DDTCMD to generate SVF file
-$(BOARD)_$(FPGA_SIZE)f_$(PROJECT).svf: $(BOARD)_$(FPGA_SIZE)f.xcf $(BOARD)_$(FPGA_SIZE)f_$(PROJECT).bit
-	LANG=C ${DDTCMD} -oft -svfsingle -revd -maxdata 8 -if $(BOARD)_$(FPGA_SIZE)f.xcf -of $@
+#$(BOARD)_$(FPGA_SIZE)f_$(PROJECT).svf: $(BOARD)_$(FPGA_SIZE)f.xcf $(BOARD)_$(FPGA_SIZE)f_$(PROJECT).bit
+#	LANG=C ${DDTCMD} -oft -svfsingle -revd -maxdata 8 -if $(BOARD)_$(FPGA_SIZE)f.xcf -of $@
+
+# generate SVF file by prjtrellis python script
+$(BOARD)_$(FPGA_SIZE)f_$(PROJECT).svf: $(BOARD)_$(FPGA_SIZE)f_$(PROJECT).bit
+	$(BIT2SVF) $< $@
 
 # program SRAM  with FleaFPGA-JTAG (temporary)
 program: $(BOARD)_$(FPGA_SIZE)f_$(PROJECT).vme
