@@ -1,5 +1,5 @@
 # ******* project, board and chip name *******
-PROJECT = dvi
+PROJECT = jtagthru
 BOARD = ulx3s
 # 12 25 45 85
 FPGA_SIZE = 25
@@ -12,29 +12,13 @@ FLASH_CHIP = is25lp128f
 
 # ******* design files *******
 CONSTRAINTS = constraints/ulx3s_v20_segpdi.lpf
-TOP_MODULE = top_vgatest_640x480
-TOP_MODULE_FILE = hdl/$(TOP_MODULE).v
-
-CLK0_NAME = clk_25_250_125_25
-CLK0_FILE_NAME = clocks/$(CLK0_NAME).v
-CLK0_OPTIONS = \
-  --input=25 \
-  --output=250 \
-  --s1=125 \
-  --p1=0 \
-  --s2=25 \
-  --p2=0
+TOP_MODULE = jtagthru
+TOP_MODULE_FILE = $(TOP_MODULE).v
 
 VERILOG_FILES = \
-  $(TOP_MODULE_FILE) \
-  $(CLK0_FILE_NAME) \
-  hdl/fake_differential.v
+  $(TOP_MODULE_FILE)
 
-VHDL_FILES = \
-  hdl/blink.vhd \
-  hdl/vga.vhd \
-  hdl/vga2dvid.vhd \
-  hdl/tmds_encoder.vhd
+VHDL_FILES =
 
 SCRIPTS = scripts
 include $(SCRIPTS)/ulx3s_diamond.mk
