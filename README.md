@@ -29,9 +29,9 @@ First board can be programmed using either FleaFPGA-JTAG:
 
     make program
 
-or using [my OpenOCD fork](https://github.com/emard/openocd) with 
-mainstream [OpenOCD](https://sourceforge.net/projects/openocd/files/openocd/) and
-my ["ft232r: unhardcoded" patch](http://openocd.zylin.com/#/c/4681/):
+Mainstream [OpenOCD](https://sourceforge.net/projects/openocd/files/openocd/)
+now contains my ["ft232r: unhardcoded" patch](http://openocd.zylin.com/#/c/4681/)
+and it will use onboard FT231X as JTAG adapter.
 
     make program_ft231x
 
