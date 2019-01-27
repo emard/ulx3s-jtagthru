@@ -1,0 +1,23 @@
+# ******* project, board and chip name *******
+PROJECT = jtagthru
+BOARD = ulx3s
+# 12 25 45 85
+FPGA_SIZE = 25
+
+# ******* design files *******
+CONSTRAINTS = constraints/ulx3s_v20_segpdi.lpf
+TOP_MODULE = jtagthru
+TOP_MODULE_FILE = $(TOP_MODULE).v
+
+VERILOG_FILES = \
+  $(TOP_MODULE_FILE)
+
+# *.vhd those files will be converted to *.v files with vhdl2vl (warning overwriting/deleting)
+VHDL_FILES =
+
+# synthesis options
+#YOSYS_OPTIONS = -noccu2
+# TRELLIS = /tmp/prjtrellis
+
+SCRIPTS = scripts
+include $(SCRIPTS)/ulx3s_trellis.mk

@@ -1,4 +1,4 @@
-module top
+module jtagthru
 (
   input clk_pin,
   input btn_pin,

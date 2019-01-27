@@ -25,15 +25,19 @@ finally compile JTAG pass-thru:
 
 # Programming
 
-First board can be programmed using either FleaFPGA-JTAG:
+First board can be programmed using either ujprog
 
     make program
 
-Mainstream [OpenOCD](https://sourceforge.net/projects/openocd/files/openocd/)
+or FleaFPGA-JTAG (requires Lattice Diamond "ddtcmd" tool):
+
+    make program_flea
+
+or Mainstream [OpenOCD](https://sourceforge.net/projects/openocd/files/openocd/)
 now contains my ["ft232r: unhardcoded" patch](http://openocd.zylin.com/#/c/4681/)
 and it will use onboard FT231X as JTAG adapter.
 
-    make program_ft231x
+    make program_ocd
 
 To program second board, connect JTAG header and proprely
 power second board ([ULX3S](https://github.com/emard/ulx3s) should be powered at US1
@@ -60,4 +64,4 @@ New serial number should appear after re-plugging.
 
 To program second board using first board with jtag-thru:
 
-    make program_ft231x2
+    make program_ocd_thru
