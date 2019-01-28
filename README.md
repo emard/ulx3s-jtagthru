@@ -15,7 +15,9 @@ on [ULX3S](https://github.com/emard/ulx3s) for easier cabling.
 # Compiling
 
 FPGA bitstream will compile 
-with [prjtrellis](https://github.com/SymbiFlow/prjtrellis)-[nextpnr](https://github.com/YosysHQ/nextpnr)-[yosys](https://github.com/YosysHQ/yosys) tools.
+with Lattice Diamond (closed source, currently recommended) or 
+[prjtrellis](https://github.com/SymbiFlow/prjtrellis)-[nextpnr](https://github.com/YosysHQ/nextpnr)-[yosys](https://github.com/YosysHQ/yosys) tools
+which may not work/have bugs for "inout" bidirectional pin declaration.
 Compile tools in any directory (without make install),
 edit makefile here to set directory paths of the tools,
 finally compile JTAG pass-thru:
